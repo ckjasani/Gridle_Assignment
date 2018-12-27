@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "d94db477-478e-4620-aed5-0de22b0a9939",
+		"name": "stacktrace",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{xsrf-token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "chandanikothari11@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"login"
+					]
+				},
+				"description": "To login\n\nAfter login,\n\nuser can see all question added by his or by other user\n\nuser can add question\n\nuser can add answer\n\nuser can vote question's answer"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "question",
+							"value": "Test by User",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"question"
+					]
+				},
+				"description": "After login user can add question"
+			},
+			"response": []
+		},
+		{
+			"name": "Display User Added Question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/display",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"display"
+					]
+				},
+				"description": "It display all question of login user"
+			},
+			"response": []
+		},
+		{
+			"name": "Display All Question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/displayall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"displayall"
+					]
+				},
+				"description": "It display all posted question"
+			},
+			"response": []
+		},
+		{
+			"name": "Display specific question",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/saveans?que_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"saveans"
+					],
+					"query": [
+						{
+							"key": "que_id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Display question base on its id"
+			},
+			"response": []
+		},
+		{
+			"name": "Save answer of question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ans",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/saveans?que_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"saveans"
+					],
+					"query": [
+						{
+							"key": "que_id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Save answer given by login user and for specific question.\n\nHere answer is given for question id 1"
+			},
+			"response": []
+		},
+		{
+			"name": "Save vote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "upvote",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/savevote?ans_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"savevote"
+					],
+					"query": [
+						{
+							"key": "ans_id",
+							"value": "2"
+						}
+					]
+				},
+				"description": "save vote of specific answer when user is logged in.\n\nif upvote value passed in post body then it will store as positive vote.\n\nif downvote value passed in post body then it will store as negative vote"
+			},
+			"response": []
+		},
+		{
+			"name": "Searching",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/search?que=postman",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"search"
+					],
+					"query": [
+						{
+							"key": "que",
+							"value": "postman"
+						}
+					]
+				},
+				"description": "Search by question"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"logout"
+					]
+				},
+				"description": "For Logout"
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Karan Jasani",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jasani_karan@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "45678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"register"
+					]
+				},
+				"description": "To register user"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comment",
+							"value": "It is very usefull",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/testlaravel/public/comment?ans_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"testlaravel",
+						"public",
+						"comment"
+					],
+					"query": [
+						{
+							"key": "ans_id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "To give comment to specific answer"
+			},
+			"response": []
+		}
+	]
+}
